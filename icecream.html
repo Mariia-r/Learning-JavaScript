@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Your Awesome Webpage</title>
+  </head>
+  <body>
+    <canvas id = "icecream" width = "800px" height = "600px" ></canvas>
+    <script>
+    var canvas = document.getElementById('icecream');
+var ctx = canvas.getContext('2d');
+
+canvas.style.backgroundColor = "#FFFFE0";
+
+//Ice cream cone
+ctx.beginPath();
+ctx.moveTo(250, 500);
+ctx.lineTo(125, 200);
+ctx.lineTo(375, 200);
+ctx.closePath();
+ctx.fillStyle = '#FFDEAD';
+ctx.strokeStyle = '#A0522D';
+ctx.lineWidth = '3';
+ctx.stroke();
+ctx.fill();
+
+//Yellow ice cream ball
+ctx.beginPath();
+function getRadians(degrees) {
+  return (Math.PI/180)*degrees;
+}
+ctx.arc(170, 180, 85, 0, getRadians(360));
+ctx.fillStyle = 'yellow';
+ctx.strokeStyle = 'black';
+ctx.stroke();
+ctx.fill();
+
+//Limegreen ice cream ball
+ctx.beginPath();
+ctx.arc(240, 80, 75, 0, getRadians(360));
+ctx.fillStyle = 'limegreen';
+ctx.StrokeStyle = '#000000';
+ctx.stroke();
+ctx.fill();
+
+ctx.beginPath();
+ctx.arc(235, 85, 75, 250, getRadians(360));
+ctx.fillStyle = '#FFFFE0';
+ctx.fill();
+
+//Chocolate ice cream ball
+ctx.beginPath();
+ctx.arc(315, 180, 85, 0, getRadians(360));
+ctx.fillStyle = '#D2691E';
+ctx.stroke();
+ctx.fill();
+
+//Cherry
+ctx.beginPath();
+ctx.arc(115, 115, 25, 0, getRadians(360));
+ctx.fillStyle = '#FF4500';
+ctx.stroke();
+ctx.fill();
+
+ctx.beginPath();
+ctx.arc(115, 40, 50, 0, getRadians(90));
+ctx.strokeStyle = '#006400';
+ctx.stroke();
+
+//Text
+var gradient = ctx.createLinearGradient(0, 0, 0, 60);
+gradient.addColorStop(0.0, '#E0FFFF');
+gradient.addColorStop(0.4, '#00FFFF');
+gradient.addColorStop(1.0, '#0000CD');
+ctx.fillStyle = gradient;
+ctx.font = "bold 30pt matura mt script capitals";
+ctx.shadowColor = 'grey';
+ctx.shadowOffsetX = 12;
+ctx.shadowOffsetY = 12;
+ctx.shadowBlur = 3;
+ctx.fillText('This is Ice cream', 450, 50);
+
+var img = document.createElement('img');
+img.onload = function () {
+  ctx.fillStyle = ctx.createPattern(img, 'repeat');
+  ctx.font = "bold 35pt wide latin";
+  ctx.fillText('Amazing', 450, 150);
+}
+img.src = 'icecream.jpg';
+
+</script>
+  </body>
+</html>
