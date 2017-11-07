@@ -48,7 +48,6 @@
         text-decoration: underline;
         font: italic bold 20px arial, sans-serif;
       }
-
     </style>
 
 
@@ -72,12 +71,14 @@
 
     
     <script>
+      //Mouse location
       var elem = document.getElementById("elem_1");
       elem.onmouseover = func;
       function func (event) {
         this.innerHTML = 'X:' + event.clientX + ' ' + 'Y:' + event.clientY;
       };
 
+      //Question about color element <div>
       var elem_2 = document.getElementById("elem_2");
       elem_2.onclick = f;
       function f () {
@@ -86,6 +87,7 @@
         this.style.border = "5px solid yellow";
       };
 
+      //Every click - different color
       var elem_3 = document.getElementById("elem_3");
       elem_3.addEventListener('click', changecolor);
       var countPress = 0;
@@ -96,6 +98,7 @@
         if (countPress == color.length) { countPress = 0;};
       };
       
+      //Different pictures. Events mouse (mouseover, mouseout)
       var elem_5 = document.getElementById("elem_5");
       elem_5.addEventListener('mouseover', fShadow );
       elem_5.addEventListener('mouseout', fPicture );
@@ -111,7 +114,8 @@
         this.style.boxShadow = 'none';
         this.style.backgroundImage = 'url(http://klumba.guru/images/90130/nezabudki-lat-myosotis-jpeg.jpg)';
       };
-      
+    
+      //Doubleclick 
       var elem_6 = document.getElementById('elem_6');
       elem_6.addEventListener('dblclick', fPicture_2)
       function fPicture_2 () {
