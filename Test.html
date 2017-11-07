@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript</title>
+    <style>  
+      .work_with_event {
+        width: 800px;
+        height: 600px;
+        background-image: linear-gradient(red, yellow, blue);
+      }
+      
+      #elem_1, #elem_2, #elem_3, #elem_4, #elem_5, #elem_6 {
+        width: 200px;
+        height: 200px;
+        background-color: white;
+        float: left;
+        margin: 15px;
+        border: 5px solid black;
+        border-radius: 80px 30px;
+      }
+
+      #elem_1 {
+        border-radius: 5px;
+        border: 1px solid green;
+      }
+
+      #elem_4 {
+        background-image: linear-gradient(green, yellow);
+        font-size: 30px;
+        border: none;
+        border-radius: 20px;
+        resize: vertical;
+      }
+
+      #elem_2, #elem_6 {
+        border-radius: 30px 80px;
+      }
+      
+      #elem_6 {
+        cursor: url(https://cloud.graphicleftovers.com/12204/3716616/3716616_125.jpg), auto;
+      }
+
+      .inner {
+        position: relative;
+        top: 85px;
+        left: 55px;
+        text-decoration: underline;
+        font: italic bold 20px arial, sans-serif;
+      }
+
+    </style>
+
+
+  </head>
+  <body>
+    <div class = "work_with_event">
+    <h1> Events </h1>
+    <div id="elem_1"></div>
+    <div id="elem_2"> 
+      <div class="inner">Click here</div> 
+    </div>
+    <div id="elem_3"> 
+      <div class="inner">Change me <br>(Hink - 'click') </div>
+    </div>
+    <textarea name="comment" id="elem_4">Pull me</textarea>
+    <div id="elem_5">
+    <div class = "inner second">Point at me</div>
+    </div>
+    <div id="elem_6"></div>
+    </div>
+
+    
+    <script>
+      var elem = document.getElementById("elem_1");
+      elem.onmouseover = func;
+      function func (event) {
+        this.innerHTML = 'X:' + event.clientX + ' ' + 'Y:' + event.clientY;
+      };
+
+      var elem_2 = document.getElementById("elem_2");
+      elem_2.onclick = f;
+      function f () {
+        var color = prompt("What is color?", " ");
+        this.style.backgroundColor = color;
+        this.style.border = "5px solid yellow";
+      };
+
+      var elem_3 = document.getElementById("elem_3");
+      elem_3.addEventListener('click', changecolor);
+      var countPress = 0;
+      function changecolor () {
+        var color = ['red', 'orange', 'yellow', 'green', 'skyblue', 'blue', 'purple'];
+        this.style.backgroundColor = color[countPress];
+        countPress++;
+        if (countPress == color.length) { countPress = 0;};
+      };
+      
+      var elem_5 = document.getElementById("elem_5");
+      elem_5.addEventListener('mouseover', fShadow );
+      elem_5.addEventListener('mouseout', fPicture );
+      function fShadow () {
+        this.style.boxShadow = '10px 10px 5px 0px rgba(203, 234, 31, 0.75)';
+        this.style.backgroundImage = 'url(https://rastenievod.com/wp-content/uploads/2017/04/3-17.jpg)';
+        var text = document.getElementsByClassName('second');
+        for (var i = 0; i < text.length; i++) {
+        text[i].style.display = "none";
+    };
+      };
+      function fPicture () {
+        this.style.boxShadow = 'none';
+        this.style.backgroundImage = 'url(http://klumba.guru/images/90130/nezabudki-lat-myosotis-jpeg.jpg)';
+      };
+      
+      var elem_6 = document.getElementById('elem_6');
+      elem_6.addEventListener('dblclick', fPicture_2)
+      function fPicture_2 () {
+        this.style.backgroundColor = 'yellow';
+      };
+    </script>
+  </body>
+</html>
